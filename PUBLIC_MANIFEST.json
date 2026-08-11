@@ -1,0 +1,37 @@
+{
+  "files": {
+    "app.js": {
+      "bytes": 10452,
+      "sha256": "10d94e87d3343ac31be5fea8538f455ab0054157afabb8e41cb34ba6f7a793db"
+    },
+    "downloads/client-handoff-preview-v0.1.zip": {
+      "bytes": 2012,
+      "sha256": "a42851732687840e11e06144abee8f13b5baca20176f48c9c57ea1d6786da340"
+    },
+    "downloads/client-handoff-preview-zh-CN-v0.1.zip": {
+      "bytes": 2255,
+      "sha256": "f186e22cc377e5e1e950198780c1e261d99bf65e4c13d935ed182c3991941fbd"
+    },
+    "downloads/privacy-first-ai-checklist.en.md": {
+      "bytes": 2331,
+      "sha256": "14b101e9f7b262f64c4f1025a52511f2dd34e19874354586b229ddcf4a80e6e8"
+    },
+    "downloads/privacy-first-ai-checklist.zh-CN.md": {
+      "bytes": 2135,
+      "sha256": "ac5be91130449588224d12f2be697c9b3fa4c01f26794e14a3b9c215b7c4410c"
+    },
+    "index.html": {
+      "bytes": 25408,
+      "sha256": "c736e36d0729359af2280b67f6175ab16476f9fe6877290545d7e0c72749e68f"
+    },
+    "styles.css": {
+      "bytes": 18287,
+      "sha256": "7043fb0a6f098106a91ec4879cd43a2cc18699d45e1f21a208b1327c9061687c"
+    }
+  },
+  "network_requests": "same_origin_assets_only",
+  "release": "e-002-public-preview-v0.1",
+  "schema": 1,
+  "scope": "static_public_files_only",
+  "tracking": "none"
+}

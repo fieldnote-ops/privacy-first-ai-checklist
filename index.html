@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="一份隐私优先的 AI 工作流检查表：在连接真实数据、工具和自动化动作前，先检查数据、权限、审批和回滚。">
+  <meta name="color-scheme" content="light">
+  <title>实证档案 — 隐私优先 AI 工作流检查表</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#checklist">跳到检查表</a>
+
+  <header class="site-header" aria-label="主导航">
+    <a class="wordmark" href="#top" aria-label="实证档案首页">
+      <span class="wordmark-mark" aria-hidden="true">FN</span>
+      <span>FIELD NOTE <b>实证档案</b></span>
+    </a>
+    <div class="header-actions">
+      <div class="language-switch" role="group" aria-label="语言">
+        <button type="button" class="lang-button is-active" data-lang="zh" aria-pressed="true">中</button>
+        <button type="button" class="lang-button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <button class="text-button" type="button" id="print-button">
+        <span data-copy="zh">打印 / 存为 PDF</span>
+        <span data-copy="en" hidden>Print / Save PDF</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-kicker" aria-label="文档状态">
+        <span>FIELD NOTE 001</span>
+        <span>V0.1 · DRAFT</span>
+        <span>NO TRACKING</span>
+      </div>
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow" data-copy="zh">先约束，再自动化</p>
+          <p class="eyebrow" data-copy="en" hidden>Constrain before you automate</p>
+          <h1 id="hero-title" data-copy="zh">别让 AI<br>替你<span>越权。</span></h1>
+          <h1 data-copy="en" hidden>Keep AI<br>inside the <span>lines.</span></h1>
+          <p class="lede" data-copy="zh">一份给独立开发者和知识工作者的发布前检查表。在连接真实资料、外部工具或自动动作之前，用 12 步检查数据、权限、审批和回滚。</p>
+          <p class="lede" data-copy="en" hidden>A preflight checklist for solo builders and knowledge workers. Review data, permissions, approvals, and rollback before AI touches real files, tools, or actions.</p>
+          <div class="hero-actions">
+            <a class="primary-action" href="#checklist">
+              <span data-copy="zh">开始检查</span>
+              <span data-copy="en" hidden>Start the check</span>
+              <span aria-hidden="true">↓</span>
+            </a>
+            <a class="secondary-action" id="download-link" href="downloads/privacy-first-ai-checklist.zh-CN.md" download>
+              <span data-copy="zh">下载 Markdown</span>
+              <span data-copy="en" hidden>Download Markdown</span>
+            </a>
+          </div>
+          <p class="disclosure" data-copy="zh">草稿由 AI 协助整理，并需由发布者实测和实质编辑。不是安全认证、法律意见或收益承诺。</p>
+          <p class="disclosure" data-copy="en" hidden>This draft was organized with AI assistance and requires hands-on testing and substantive human editing. It is not a security certification, legal advice, or an income claim.</p>
+        </div>
+
+        <aside class="risk-sheet" aria-labelledby="risk-title">
+          <div class="sheet-topline">
+            <span data-copy="zh">五分钟风险筛查</span>
+            <span data-copy="en" hidden>Five-minute risk screen</span>
+            <span>0—10</span>
+          </div>
+          <h2 id="risk-title" data-copy="zh">先算风险，<br>再决定是否继续。</h2>
+          <h2 data-copy="en" hidden>Score the risk.<br>Then decide.</h2>
+          <ol class="risk-list">
+            <li data-copy="zh">输入包含个人、客户或内部数据？</li>
+            <li data-copy="zh">AI 能写入、删除、付款、发布或改权限？</li>
+            <li data-copy="zh">错误会带来财务、法律、健康或声誉损失？</li>
+            <li data-copy="zh">外部内容可能含有恶意指令？</li>
+            <li data-copy="zh">缺少审批、日志、备份或回滚？</li>
+            <li data-copy="en" hidden>Personal, client, or internal data?</li>
+            <li data-copy="en" hidden>Can AI write, delete, pay, publish, or change access?</li>
+            <li data-copy="en" hidden>Can mistakes cause financial, legal, health, or reputation harm?</li>
+            <li data-copy="en" hidden>Can external content carry malicious instructions?</li>
+            <li data-copy="en" hidden>Missing approval, logs, backup, or rollback?</li>
+          </ol>
+          <div class="risk-scale" aria-label="风险等级">
+            <span class="risk-low">0–2 <b data-copy="zh">低</b><b data-copy="en" hidden>low</b></span>
+            <span class="risk-mid">3–5 <b data-copy="zh">中</b><b data-copy="en" hidden>medium</b></span>
+            <span class="risk-high">6–10 <b data-copy="zh">停</b><b data-copy="en" hidden>stop</b></span>
+          </div>
+          <p data-copy="zh">每项 0–2 分。任何“禁止提交”的数据都直接覆盖总分。</p>
+          <p data-copy="en" hidden>Score each 0–2. Any prohibited data overrides the total.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="preflight" aria-labelledby="preflight-title">
+      <div>
+        <p class="section-number">00 / STOP FIRST</p>
+        <h2 id="preflight-title" data-copy="zh">出现任一情况，<br>不要上传原始数据。</h2>
+        <h2 data-copy="en" hidden>Any one of these?<br>Do not upload raw data.</h2>
+      </div>
+      <ul class="stop-list">
+        <li data-copy="zh"><span>01</span>密码、令牌、身份证件、银行或支付信息</li>
+        <li data-copy="zh"><span>02</span>未公开的客户、患者、员工、儿童或保密资料</li>
+        <li data-copy="zh"><span>03</span>错误可直接付款、删除、发布、改权限或形成法律承诺</li>
+        <li data-copy="zh"><span>04</span>不清楚服务商如何保留、训练、共享或删除输入</li>
+        <li data-copy="zh"><span>05</span>无法先脱敏，也无法在执行前人工复核</li>
+        <li data-copy="en" hidden><span>01</span>Passwords, tokens, identity documents, banking, or payment data</li>
+        <li data-copy="en" hidden><span>02</span>Non-public client, patient, employee, child, or contract-protected data</li>
+        <li data-copy="en" hidden><span>03</span>A mistake can pay, delete, publish, change access, or create a legal commitment</li>
+        <li data-copy="en" hidden><span>04</span>Provider retention, training, sharing, or deletion rules are unknown</li>
+        <li data-copy="en" hidden><span>05</span>You cannot redact first or review before action</li>
+      </ul>
+    </section>
+
+    <section class="checklist-section" id="checklist" aria-labelledby="checklist-title">
+      <div class="checklist-heading">
+        <div>
+          <p class="section-number">01—12 / PREFLIGHT</p>
+          <h2 id="checklist-title" data-copy="zh">12 项检查</h2>
+          <h2 data-copy="en" hidden>12 checks</h2>
+        </div>
+        <div class="progress-box" aria-live="polite">
+          <span data-copy="zh">本机进度</span>
+          <span data-copy="en" hidden>Local progress</span>
+          <strong><span id="progress-count">0</span>/12</strong>
+          <div class="progress-track" aria-hidden="true"><i id="progress-bar"></i></div>
+          <button class="reset-button" type="button" id="reset-button" disabled>
+            <span data-copy="zh">清除</span><span data-copy="en" hidden>Reset</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="check-grid">
+        <article class="check-item">
+          <label><input type="checkbox" data-check="1"><span class="check-number">01</span><span data-copy="zh">目的与边界</span><span data-copy="en" hidden>Purpose & boundaries</span></label>
+          <p data-copy="zh">写清目的、禁止动作、成功、失败和停止条件。</p><p data-copy="en" hidden>State the purpose, prohibited actions, success, failure, and stop conditions.</p>
+        </article>
+        <article class="check-item">
+          <label><input type="checkbox" data-check="2"><span class="check-number">02</span><span data-copy="zh">数据分级</span><span data-copy="en" hidden>Classify data</span></label>
+          <p data-copy="zh">标记公开、内部、机密或禁止提交；未知按更敏感处理。</p><p data-copy="en" hidden>Label public, internal, confidential, or prohibited; treat unknowns as sensitive.</p>
+        </article>
+        <article class="check-item">
+          <label><input type="checkbox" data-check="3"><span class="check-number">03</span><span data-copy="zh">服务商规则</span><span data-copy="en" hidden>Provider rules</span></label>
+          <p data-copy="zh">核验当前隐私、保留、训练、存储和删除规则。</p><p data-copy="en" hidden>Verify current privacy, retention, training, storage, and deletion rules.</p>
+        </article>
+        <article class="check-item">
+          <label><input type="checkbox" data-check="4"><span class="check-number">04</span><span data-copy="zh">最小权限</span><span data-copy="en" hidden>Least privilege</span></label>
+          <p data-copy="zh">只给必要读取范围；写入、删除、付款和发布默认关闭。</p><p data-copy="en" hidden>Grant only necessary reads; keep writes, deletion, payments, and publishing off.</p>
+        </article>
+        <article class="check-item">
+          <label><input type="checkbox" data-check="5"><span class="check-number">05</span><span data-copy="zh">清理输入</span><span data-copy="en" hidden>Sanitize input</span></label>
+          <p data-copy="zh">使用脱敏副本；检查截图、元数据、隐藏列和修订记录。</p><p data-copy="en" hidden>Use a redacted copy; inspect screenshots, metadata, hidden sheets, and revisions.</p>
+        </article>
+        <article class="check-item">
+          <label><input type="checkbox" data-check="6"><span class="check-number">06</span><span data-copy="zh">注入与越权</span><span data-copy="en" hidden>Injection & escalation</span></label>
+          <p data-copy="zh">把网页、邮件、PDF 和用户上传视为不可信数据。</p><p data-copy="en" hidden>Treat websites, email, PDFs, and uploads as untrusted data.</p>
+        </article>
+        <article class="check-item">
+          <label><input type="checkbox" data-check="7"><span class="check-number">07</span><span data-copy="zh">约束输出</span><span data-copy="en" hidden>Constrain output</span></label>
+          <p data-copy="zh">定义结构并验证类型、数字、链接、引用和代码。</p><p data-copy="en" hidden>Define a structure and verify types, numbers, links, citations, and code.</p>
+        </article>
+        <article class="check-item">
+          <label><input type="checkbox" data-check="8"><span class="check-number">08</span><span data-copy="zh">人工审批</span><span data-copy="en" hidden>Human approval</span></label>
+          <p data-copy="zh">发布、付款、删除、外发、改权限和法律承诺必须确认。</p><p data-copy="en" hidden>Confirm publishing, payments, deletion, messages, access, and legal commitments.</p>
+        </article>
+        <article class="check-item">
+          <label><input type="checkbox" data-check="9"><span class="check-number">09</span><span data-copy="zh">可回滚</span><span data-copy="en" hidden>Rollback</span></label>
+          <p data-copy="zh">写入前有版本或草稿；能停止并避免无限重试与重复动作。</p><p data-copy="en" hidden>Version before writes; stop safely and prevent endless retries or duplicates.</p>
+        </article>
+        <article class="check-item">
+          <label><input type="checkbox" data-check="10"><span class="check-number">10</span><span data-copy="zh">坏案例测试</span><span data-copy="en" hidden>Adversarial tests</span></label>
+          <p data-copy="zh">测试空值、超长、冲突、诱导泄密、超时和部分成功。</p><p data-copy="en" hidden>Test empty, oversized, conflicting, secret-seeking, timeout, and partial cases.</p>
+        </article>
+        <article class="check-item">
+          <label><input type="checkbox" data-check="11"><span class="check-number">11</span><span data-copy="zh">必要证据</span><span data-copy="en" hidden>Minimum evidence</span></label>
+          <p data-copy="zh">记录版本、结果和审批，但日志不保留不必要的敏感原文。</p><p data-copy="en" hidden>Record versions, results, and approvals without unnecessary sensitive raw text.</p>
+        </article>
+        <article class="check-item">
+          <label><input type="checkbox" data-check="12"><span class="check-number">12</span><span data-copy="zh">维护责任</span><span data-copy="en" hidden>Maintenance owner</span></label>
+          <p data-copy="zh">指定复查人、复测周期、暂停触发器和错误报告路径。</p><p data-copy="en" hidden>Assign reviews, retest cadence, pause triggers, and an error-reporting path.</p>
+        </article>
+      </div>
+      <p class="local-note" data-copy="zh">勾选状态只保存在当前浏览器，不上传、不分析。</p>
+      <p class="local-note" data-copy="en" hidden>Check states stay in this browser. Nothing is uploaded or analyzed.</p>
+    </section>
+
+    <section class="test-record" aria-labelledby="record-title">
+      <div class="record-intro">
+        <p class="section-number">TEST RECORD / COPY</p>
+        <h2 id="record-title" data-copy="zh">留下最小证据。</h2>
+        <h2 data-copy="en" hidden>Keep the minimum evidence.</h2>
+        <p data-copy="zh">每次工作流变更后复制一份。记录决策，不记录秘密。</p>
+        <p data-copy="en" hidden>Copy after every workflow change. Record decisions, not secrets.</p>
+        <button class="primary-action copy-button" type="button" id="copy-record">
+          <span data-copy="zh">复制测试记录</span>
+          <span data-copy="en" hidden>Copy test record</span>
+        </button>
+        <p class="copy-status" id="copy-status" role="status"></p>
+      </div>
+      <pre id="record-preview" aria-label="测试记录模板">## AI workflow test record
+
+- Workflow / version:
+- Purpose:
+- Prohibited actions:
+- Data class:
+- Tool permissions:
+- Risk score:
+- Normal-case result:
+- Hostile/broken-case result:
+- Human approval point:
+- Rollback method:
+- Next review date:</pre>
+    </section>
+
+    <section class="planned-product" id="preview" aria-labelledby="product-title">
+      <p class="status-stamp" data-copy="zh">计划中 · 尚未销售</p>
+      <p class="status-stamp" data-copy="en" hidden>PLANNED · NOT FOR SALE</p>
+      <div>
+        <p class="section-number">NEXT / VALIDATE FIRST</p>
+        <h2 id="product-title" data-copy="zh">能运行，还要能<br>交给客户接管。</h2>
+        <h2 data-copy="en" hidden>Make it run—and make it<br>safe to hand over.</h2>
+      </div>
+      <div class="product-details">
+        <p data-copy="zh">用完全虚构的客户自动化，在 15 分钟内写清实例、凭证、动作边界、恢复和撤权责任。当前只测试需求；完整版本只会在真实交付者出现强购买信号后制作。</p>
+        <p data-copy="en" hidden>Use a fully synthetic client automation to name instance, credential, action-boundary, recovery, and offboarding owners in 15 minutes. This is a demand test; a full version will only be built after strong signals from real client-delivery practitioners.</p>
+        <dl>
+          <div><dt data-copy="zh">价格顺序</dt><dt data-copy="en" hidden>Test price</dt><dd data-copy="zh">完成预检后显示</dd><dd data-copy="en" hidden>$19</dd></div>
+          <div><dt data-copy="zh">格式</dt><dt data-copy="en" hidden>Format</dt><dd>MD · CSV</dd></div>
+          <div><dt data-copy="zh">销售状态</dt><dt data-copy="en" hidden>Sales status</dt><dd data-copy="zh">未开放</dd><dd data-copy="en" hidden>Closed</dd></div>
+        </dl>
+        <a class="primary-action product-test-action" href="#handoff-test" data-copy="zh">
+          开始 15 分钟合成预检 <span aria-hidden="true">↓</span>
+        </a>
+        <a class="secondary-action" href="downloads/client-handoff-preview-zh-CN-v0.1.zip" download data-copy="zh">
+          下载中文合成交付预览 .zip
+        </a>
+        <a class="secondary-action" href="downloads/client-handoff-preview-v0.1.zip" download data-copy="en" hidden>
+          Download the synthetic handoff preview .zip
+        </a>
+        <p class="disclosure" data-copy="zh">预览只允许虚构/完全脱敏信息；不上传数据。它是操作提示，不是合同、安全认证或合规证明。</p>
+        <p class="disclosure" data-copy="en" hidden>The preview accepts only fictional or fully redacted information and uploads nothing. It is an operational prompt—not a contract, security certification, or compliance proof.</p>
+      </div>
+    </section>
+
+    <section class="handoff-test" id="handoff-test" aria-labelledby="handoff-test-title" data-copy="zh">
+      <div class="handoff-test-heading">
+        <div>
+          <p class="section-number">E-002 / SYNTHETIC TEST</p>
+          <h2 id="handoff-test-title">15 分钟客户交付预检</h2>
+        </div>
+        <p class="test-state"><span aria-hidden="true"></span> 本地运行 · 不发送数据</p>
+      </div>
+
+      <div class="handoff-test-layout">
+        <aside class="handoff-brief" aria-labelledby="handoff-brief-title">
+          <p class="brief-label">开始前</p>
+          <h3 id="handoff-brief-title">只回答分类，不填写客户信息。</h3>
+          <p>请使用完全虚构的“销售线索整理”工作流，或只在心里对应你的经历。页面没有文本输入框，也不会向服务器发送任何请求。</p>
+          <ul>
+            <li>不要粘贴客户、公司、账号、链接或合同。</li>
+            <li>不要上传截图、生产结构、Token 或 API Key。</li>
+            <li>价格只会在完成问题检查后显示一次。</li>
+            <li>完成后由你决定是否复制并主动发送脱敏回执。</li>
+          </ul>
+          <button class="primary-action" type="button" id="e002-start">开始并计时</button>
+          <p class="local-note">计时仅存在于当前标签页；刷新即清除。</p>
+        </aside>
+
+        <form class="handoff-form" id="e002-form" hidden novalidate>
+          <div class="handoff-progress" aria-live="polite">
+            <span>合成预检</span>
+            <strong id="e002-stage">1 / 4</strong>
+          </div>
+
+          <fieldset>
+            <legend><span>01</span>你最近 6 个月是否完成过付费客户自动化交付？</legend>
+            <label class="choice-row"><input type="radio" name="persona" value="yes">是，完成过至少一次</label>
+            <label class="choice-row"><input type="radio" name="persona" value="no">没有；我只做内部、学习或假设项目</label>
+            <p class="field-note" id="e002-ineligible" hidden>感谢参与，但这次不计入目标样本；你仍可下载预览自行使用。</p>
+          </fieldset>
+
+          <fieldset>
+            <legend><span>02</span>按现有交付方式，最难立即回答哪一类？</legend>
+            <div class="choice-grid">
+              <label class="choice-card"><input type="radio" name="gap" value="handoff_ownership"><b>所有权</b><small>实例、计费、导出、数据和备份归谁控制</small></label>
+              <label class="choice-card"><input type="radio" name="gap" value="credential_transfer"><b>凭证责任</b><small>谁授权、轮换、撤权；不记录秘密值</small></label>
+              <label class="choice-card"><input type="radio" name="gap" value="approval"><b>动作边界</b><small>自动、需审批和禁止的动作如何区分</small></label>
+              <label class="choice-card"><input type="radio" name="gap" value="rollback"><b>停用恢复</b><small>当前版本、故障测试和恢复责任是否可验证</small></label>
+              <label class="choice-card"><input type="radio" name="gap" value="offboarding"><b>结束撤权</b><small>客户接管后如何证明服务商访问已结束</small></label>
+              <label class="choice-card"><input type="radio" name="gap" value="none_reported"><b>都能回答</b><small>现有 SOP 已经充分覆盖</small></label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend><span>03</span>你现在主要用什么替代？</legend>
+            <div class="choice-grid choice-grid-compact">
+              <label class="choice-card"><input type="radio" name="workaround" value="own_sop"><b>自有 SOP</b></label>
+              <label class="choice-card"><input type="radio" name="workaround" value="contract_or_acceptance"><b>合同/验收单</b></label>
+              <label class="choice-card"><input type="radio" name="workaround" value="project_docs"><b>项目文档</b></label>
+              <label class="choice-card"><input type="radio" name="workaround" value="ai_generated_each_time"><b>每次用 AI 生成</b></label>
+              <label class="choice-card"><input type="radio" name="workaround" value="memory_or_chat"><b>口头/聊天记录</b></label>
+              <label class="choice-card"><input type="radio" name="workaround" value="none"><b>没有固定方式</b></label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend><span>04</span>隐私确认</legend>
+            <label class="choice-row"><input type="checkbox" id="e002-redacted">我只使用了虚构/抽象分类，没有在页面中输入或准备发送任何客户资料。</label>
+            <button class="primary-action" type="button" id="e002-show-price" disabled>完成预检并查看单一价格</button>
+            <p class="field-note" id="e002-form-status" role="status">请完成 01–04 后继续。</p>
+          </fieldset>
+
+          <section class="price-stage" id="e002-price-stage" aria-labelledby="e002-price-title" hidden>
+            <p class="section-number">PRICE SHOWN LAST</p>
+            <div class="price-line">
+              <div>
+                <h3 id="e002-price-title">如果完整包一次性 ¥99</h3>
+                <p>包含所有权表、凭证责任、动作边界、停用恢复、撤权记录和合成案例；不含咨询、合同或代运维。</p>
+              </div>
+              <strong>¥99</strong>
+            </div>
+            <fieldset>
+              <legend><span>05</span>基于刚才的实际缺口，你现在会怎样选择？</legend>
+              <label class="choice-row"><input type="radio" name="intent" value="would_buy_now">如果现在可买，我会购买</label>
+              <label class="choice-row"><input type="radio" name="intent" value="would_buy_later">有项目时可能购买，但现在不会</label>
+              <label class="choice-row"><input type="radio" name="intent" value="free_only">免费预览已经足够</label>
+              <label class="choice-row"><input type="radio" name="intent" value="not_for_me">这不是我要解决的问题</label>
+            </fieldset>
+            <fieldset>
+              <legend><span>06</span>是否允许发布者就这份回执追问一次？</legend>
+              <label class="choice-row"><input type="radio" name="followup" value="yes">可以，通过我主动发送回执的同一渠道</label>
+              <label class="choice-row"><input type="radio" name="followup" value="no">不需要追问</label>
+            </fieldset>
+            <button class="primary-action" type="button" id="e002-build-receipt" disabled>生成脱敏回执</button>
+          </section>
+
+          <section class="receipt-stage" id="e002-receipt-stage" aria-labelledby="e002-receipt-title" hidden>
+            <div>
+              <p class="section-number">LOCAL RECEIPT / COPY ONLY</p>
+              <h3 id="e002-receipt-title">回执只包含固定分类。</h3>
+              <p>请先检查内容，再决定是否复制并通过你主动选择的渠道发送。页面不会代你发送。</p>
+            </div>
+            <pre id="e002-receipt" tabindex="0"></pre>
+            <div class="receipt-actions">
+              <button class="primary-action" type="button" id="e002-copy-receipt">复制脱敏回执</button>
+              <button class="text-button" type="button" id="e002-reset">清除并重新开始</button>
+            </div>
+            <p class="copy-status" id="e002-copy-status" role="status"></p>
+          </section>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div><span>FIELD NOTE 001</span><span data-copy="zh">品牌待定 · 实测记录</span><span data-copy="en" hidden>Brand pending · tested record</span></div>
+    <p data-copy="zh">无追踪 · 无 Cookie · 无暗黑模式营销</p>
+    <p data-copy="en" hidden>No tracking · No cookies · No dark patterns</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
