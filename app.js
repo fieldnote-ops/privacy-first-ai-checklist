@@ -63,8 +63,8 @@
     activeLang = lang;
     root.lang = lang === 'zh' ? 'zh-CN' : 'en';
     document.title = lang === 'zh'
-      ? '实证档案 — 隐私优先 AI 工作流检查表'
-      : 'FIELD NOTE — Privacy-first AI Workflow Checklist';
+      ? '自动化项目交付清单｜15 分钟客户接管预检｜实证档案'
+      : 'Client Automation Handoff Preflight | FIELD NOTE';
     copyNodes.forEach((node) => { node.hidden = node.dataset.copy !== lang; });
     langButtons.forEach((button) => {
       const active = button.dataset.lang === lang;
@@ -137,16 +137,22 @@
     const gap = checkedValue('gap');
     const workaround = checkedValue('workaround');
     const eligible = persona === 'yes';
+    const noGap = gap === 'none_reported';
     const readyForPrice = eligible && gap && workaround && e002Redacted.checked;
     const stepsDone = [persona, gap, workaround, e002Redacted.checked ? 'yes' : '']
       .filter(Boolean).length;
 
     e002Ineligible.hidden = persona !== 'no';
     e002ShowPrice.disabled = !e002PriceStage.hidden || !readyForPrice;
+    e002ShowPrice.textContent = noGap
+      ? '完成预检并生成无缺口回执'
+      : '完成预检并查看单一价格';
     e002FormStatus.textContent = persona === 'no'
       ? '本实验只统计最近 6 个月有真实付费客户交付经历的参与者。'
       : readyForPrice
-        ? '已满足隐私与样本条件；价格仍未显示。'
+        ? noGap
+          ? '现有方式已覆盖本次问题；不会显示价格或询问购买。'
+          : '已满足隐私与样本条件；价格仍未显示。'
         : '请完成 01–04 后继续。';
     if (e002PriceStage.hidden) e002Stage.textContent = `${Math.min(stepsDone + 1, 4)} / 4`;
 
@@ -164,6 +170,44 @@
     const now = new Date();
     const offset = now.getTimezoneOffset() * 60000;
     return new Date(now.getTime() - offset).toISOString().slice(0, 10);
+  }
+
+  function buildE002Receipt(intent, followup, priceShown) {
+    const rawGap = checkedValue('gap');
+    const problemCategory = rawGap === 'none_reported' ? 'other' : rawGap;
+    if (!intent || !followup || !e002CompletionMinutes) return;
+
+    const receipt = [
+      'E-002 privacy-redacted receipt',
+      `observed_at=${localDate()}`,
+      'experiment_id=E-002',
+      'market=domestic',
+      'source=self_hosted_zero_tracking_preview',
+      `participant_code=${e002ParticipantCode}`,
+      'persona_fit=yes',
+      'workflow_context=synthetic_client_automation',
+      `problem_trigger=${rawGap}`,
+      `problem_category=${problemCategory}`,
+      `current_workaround=${checkedValue('workaround')}`,
+      `consequence=${rawGap === 'none_reported' ? 'no_material_gap' : 'handoff_answer_not_immediate'}`,
+      'preview_completed=yes',
+      `completion_minutes=${e002CompletionMinutes}`,
+      `missing_control=${rawGap}`,
+      'selected_promise=15_minute_handoff_preflight',
+      `price_shown=${priceShown}`,
+      'currency=CNY',
+      `purchase_intent=${intent}`,
+      'commitment_type=preview_completed',
+      `followup_allowed=${followup}`,
+      'privacy_redacted=yes',
+      'evidence_location=voluntary_receipt_same_channel',
+      'notes=fixed_categories_only_no_client_data'
+    ].join('\n');
+
+    e002Receipt.textContent = receipt;
+    e002ReceiptStage.hidden = false;
+    e002Stage.textContent = '6 / 6';
+    e002ReceiptStage.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   function resetE002() {
@@ -212,48 +256,19 @@
     e002CompletionMinutes = Math.max(1, Math.ceil((Date.now() - e002StartedAt) / 60000));
     freezePrePriceFields(true);
     e002ShowPrice.disabled = true;
+    if (checkedValue('gap') === 'none_reported') {
+      buildE002Receipt('not_asked', 'no', 0);
+      e002Stage.textContent = '4 / 4';
+      return;
+    }
     e002PriceStage.hidden = false;
     e002Stage.textContent = '5 / 6';
     e002PriceStage.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
   e002BuildReceipt.addEventListener('click', () => {
-    const rawGap = checkedValue('gap');
-    const problemCategory = rawGap === 'none_reported' ? 'other' : rawGap;
     const intent = checkedValue('intent');
     const followup = checkedValue('followup');
-    if (!intent || !followup || !e002CompletionMinutes) return;
-
-    const receipt = [
-      'E-002 privacy-redacted receipt',
-      `observed_at=${localDate()}`,
-      'experiment_id=E-002',
-      'market=domestic',
-      'source=self_hosted_zero_tracking_preview',
-      `participant_code=${e002ParticipantCode}`,
-      'persona_fit=yes',
-      'workflow_context=synthetic_client_automation',
-      `problem_trigger=${rawGap}`,
-      `problem_category=${problemCategory}`,
-      `current_workaround=${checkedValue('workaround')}`,
-      `consequence=${rawGap === 'none_reported' ? 'no_material_gap' : 'handoff_answer_not_immediate'}`,
-      'preview_completed=yes',
-      `completion_minutes=${e002CompletionMinutes}`,
-      `missing_control=${rawGap}`,
-      'selected_promise=15_minute_handoff_preflight',
-      'price_shown=99',
-      'currency=CNY',
-      `purchase_intent=${intent}`,
-      'commitment_type=preview_completed',
-      `followup_allowed=${followup}`,
-      'privacy_redacted=yes',
-      'evidence_location=voluntary_receipt_same_channel',
-      'notes=fixed_categories_only_no_client_data'
-    ].join('\n');
-
-    e002Receipt.textContent = receipt;
-    e002ReceiptStage.hidden = false;
-    e002Stage.textContent = '6 / 6';
-    e002ReceiptStage.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    buildE002Receipt(intent, followup, 99);
   });
   e002CopyReceipt.addEventListener('click', async () => {
     try {

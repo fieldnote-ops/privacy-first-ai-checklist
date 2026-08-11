@@ -1,8 +1,8 @@
 {
   "files": {
     "app.js": {
-      "bytes": 10452,
-      "sha256": "10d94e87d3343ac31be5fea8538f455ab0054157afabb8e41cb34ba6f7a793db"
+      "bytes": 11025,
+      "sha256": "672d7e0d56d2787f7ebcc51797afdb8127207cba3f9e819ac278309331701f14"
     },
     "downloads/client-handoff-preview-v0.1.zip": {
       "bytes": 2012,
@@ -21,16 +21,16 @@
       "sha256": "ac5be91130449588224d12f2be697c9b3fa4c01f26794e14a3b9c215b7c4410c"
     },
     "index.html": {
-      "bytes": 25408,
-      "sha256": "c736e36d0729359af2280b67f6175ab16476f9fe6877290545d7e0c72749e68f"
+      "bytes": 29677,
+      "sha256": "81df04365320dfe31870d82382186b3e7247a402bff2f59975e5b1e8255e36f8"
     },
     "styles.css": {
-      "bytes": 18287,
-      "sha256": "7043fb0a6f098106a91ec4879cd43a2cc18699d45e1f21a208b1327c9061687c"
+      "bytes": 17461,
+      "sha256": "6a33ed5454fa6235dd04c568c6da2e9cff0ea9b19f600b88fbd5fabe3cc4a693"
     }
   },
   "network_requests": "same_origin_assets_only",
-  "release": "e-002-public-preview-v0.1",
+  "release": "e-002-public-preview-v0.2-candidate",
   "schema": 1,
   "scope": "static_public_files_only",
   "tracking": "none"

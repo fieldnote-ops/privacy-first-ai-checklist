@@ -3,9 +3,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="一份隐私优先的 AI 工作流检查表：在连接真实数据、工具和自动化动作前，先检查数据、权限、审批和回滚。">
+  <meta name="description" content="给自动化自由职业者和小团队的客户交付清单：用 15 分钟合成预检核对实例所有权、凭证责任、动作审批、停用恢复与结束撤权。页面不上传数据，完整包尚未销售。">
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
   <meta name="color-scheme" content="light">
-  <title>实证档案 — 隐私优先 AI 工作流检查表</title>
+  <link rel="canonical" href="https://fieldnote-ops.github.io/privacy-first-ai-checklist/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:title" content="自动化项目交付清单｜15 分钟客户接管预检">
+  <meta property="og:description" content="核对所有权、凭证、审批、恢复与撤权；只用合成分类，不上传客户数据。">
+  <meta property="og:url" content="https://fieldnote-ops.github.io/privacy-first-ai-checklist/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="自动化项目交付清单｜15 分钟客户接管预检">
+  <meta name="twitter:description" content="隐私优先、无追踪、价格最后显示的合成交付预检。">
+  <title>自动化项目交付清单｜15 分钟客户接管预检｜实证档案</title>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"自动化项目交付清单｜15 分钟客户接管预检","description":"给自动化自由职业者和小团队的隐私优先客户交付预检。","url":"https://fieldnote-ops.github.io/privacy-first-ai-checklist/","inLanguage":["zh-CN","en"],"dateModified":"2026-08-11","isAccessibleForFree":true,"about":[{"@type":"Thing","name":"客户自动化交付"},{"@type":"Thing","name":"凭证责任"},{"@type":"Thing","name":"工作流接管"}]}</script>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -32,21 +43,23 @@
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-kicker" aria-label="文档状态">
         <span>FIELD NOTE 001</span>
-        <span>V0.1 · DRAFT</span>
+        <span>V0.2 · REVIEW CANDIDATE</span>
         <span>NO TRACKING</span>
       </div>
       <div class="hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow" data-copy="zh">先约束，再自动化</p>
-          <p class="eyebrow" data-copy="en" hidden>Constrain before you automate</p>
-          <h1 id="hero-title" data-copy="zh">别让 AI<br>替你<span>越权。</span></h1>
-          <h1 data-copy="en" hidden>Keep AI<br>inside the <span>lines.</span></h1>
-          <p class="lede" data-copy="zh">一份给独立开发者和知识工作者的发布前检查表。在连接真实资料、外部工具或自动动作之前，用 12 步检查数据、权限、审批和回滚。</p>
-          <p class="lede" data-copy="en" hidden>A preflight checklist for solo builders and knowledge workers. Review data, permissions, approvals, and rollback before AI touches real files, tools, or actions.</p>
+          <p class="eyebrow" data-copy="zh">先交清，再交付</p>
+          <p class="eyebrow" data-copy="en" hidden>Make the handoff explicit</p>
+          <h1 id="hero-title">
+            <span class="hero-title-copy" data-copy="zh">自动化项目<br>交付<span class="hero-emphasis">清单。</span></span>
+            <span class="hero-title-copy" data-copy="en" hidden>Client automation<br>handoff <span class="hero-emphasis">preflight.</span></span>
+          </h1>
+          <p class="lede" data-copy="zh">给最近交付过客户自动化的个人开发者和小团队：用 15 分钟合成预检，核对实例所有权、凭证责任、动作审批、停用恢复和结束撤权。</p>
+          <p class="lede" data-copy="en" hidden>A 15-minute synthetic preflight for builders handing client automations over: clarify instance ownership, credential responsibility, approvals, recovery, and access revocation.</p>
           <div class="hero-actions">
-            <a class="primary-action" href="#checklist">
-              <span data-copy="zh">开始检查</span>
-              <span data-copy="en" hidden>Start the check</span>
+            <a class="primary-action" href="#handoff-test">
+              <span data-copy="zh">开始 15 分钟预检</span>
+              <span data-copy="en" hidden>Start the handoff test</span>
               <span aria-hidden="true">↓</span>
             </a>
             <a class="secondary-action" id="download-link" href="downloads/privacy-first-ai-checklist.zh-CN.md" download>
@@ -54,8 +67,8 @@
               <span data-copy="en" hidden>Download Markdown</span>
             </a>
           </div>
-          <p class="disclosure" data-copy="zh">草稿由 AI 协助整理，并需由发布者实测和实质编辑。不是安全认证、法律意见或收益承诺。</p>
-          <p class="disclosure" data-copy="en" hidden>This draft was organized with AI assistance and requires hands-on testing and substantive human editing. It is not a security certification, legal advice, or an income claim.</p>
+          <p class="disclosure" data-copy="zh">候选版由 AI 协助整理，发布者已运行确定性页面测试；尚无陌生用户或购买验证。不是合同、安全认证、法律意见或收益承诺。</p>
+          <p class="disclosure" data-copy="en" hidden>This candidate was organized with AI assistance and passed deterministic page tests; it has no independent-user or purchase validation yet. It is not a contract, certification, legal advice, or income claim.</p>
         </div>
 
         <aside class="risk-sheet" aria-labelledby="risk-title">
@@ -256,7 +269,7 @@
           <ul>
             <li>不要粘贴客户、公司、账号、链接或合同。</li>
             <li>不要上传截图、生产结构、Token 或 API Key。</li>
-            <li>价格只会在完成问题检查后显示一次。</li>
+            <li>只有发现实际缺口时，才会在完成问题检查后显示一次价格。</li>
             <li>完成后由你决定是否复制并主动发送脱敏回执。</li>
           </ul>
           <button class="primary-action" type="button" id="e002-start">开始并计时</button>
@@ -347,10 +360,36 @@
         </form>
       </div>
     </section>
+
+    <section class="evidence-section" aria-labelledby="evidence-title" data-copy="zh">
+      <div>
+        <p class="section-number">EVIDENCE / LIMITS</p>
+        <h2 id="evidence-title">这份自动化项目交付清单依据什么？</h2>
+        <p>当前公开讨论出现“导入后凭证重连”“环境值写死”“接管后仍依赖交付者”。它们只证明问题语言，不证明购买。</p>
+      </div>
+      <dl class="evidence-list">
+        <div><dt>官方边界</dt><dd>n8n 的工作流分享、角色与凭证权限依套餐、实例和项目而异；交付前必须记录实际部署，不用通用文档替代平台权限。</dd></div>
+        <div><dt>当前证据</dt><dd>专业社区存在具体交付触发、手工凭证重连、硬编码环境值和支持返工描述；来源身份与交易未独立核验，因此只按问题证据使用。</dd></div>
+        <div><dt>本页实测</dt><dd>价格顺序、非目标样本排除、固定分类回执、刷新清除、同源请求和 390px 布局均有自动测试；尚未证明实际节省时间。</dd></div>
+        <div><dt>最后更新</dt><dd><time datetime="2026-08-11">2026-08-11</time> · FIELD NOTE 001 · V0.2 候选版</dd></div>
+      </dl>
+      <p class="source-note">来源：n8n Docs「Share with others」；n8n Community「How do agencies handle client onboarding」。</p>
+    </section>
+
+    <section class="faq-section" aria-labelledby="faq-title" data-copy="zh">
+      <p class="section-number">FAQ / BEFORE YOU START</p>
+      <h2 id="faq-title">常见问题</h2>
+      <div class="faq-grid">
+        <article><h3>这是 n8n 模板吗？</h3><p>不是。它是跨平台的交付预检，只要求你写清实际实例、凭证、动作、恢复和撤权责任；不会修改工作流。</p></article>
+        <article><h3>为什么没有文本框和在线表单？</h3><p>为了避免收集客户、账号或生产结构。页面只处理固定分类，结果留在当前标签页，由你决定是否复制。</p></article>
+        <article><h3>完成后必须购买吗？</h3><p>不需要。完整包尚未销售；只有报告实际缺口时才显示一次价格，现有方式已充分覆盖则不询问购买。</p></article>
+        <article><h3>能替代合同或安全审查吗？</h3><p>不能。它帮助记录操作责任，不提供法律、合规、安全认证或持续运维服务。</p></article>
+      </div>
+    </section>
   </main>
 
   <footer>
-    <div><span>FIELD NOTE 001</span><span data-copy="zh">品牌待定 · 实测记录</span><span data-copy="en" hidden>Brand pending · tested record</span></div>
+    <div><span>FIELD NOTE 001</span><span data-copy="zh">品牌待定 · V0.2 候选</span><span data-copy="en" hidden>Brand pending · V0.2 candidate</span></div>
     <p data-copy="zh">无追踪 · 无 Cookie · 无暗黑模式营销</p>
     <p data-copy="en" hidden>No tracking · No cookies · No dark patterns</p>
   </footer>
