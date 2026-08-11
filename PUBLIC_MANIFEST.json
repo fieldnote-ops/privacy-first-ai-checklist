@@ -1,5 +1,9 @@
 {
   "files": {
+    "README.md": {
+      "bytes": 1499,
+      "sha256": "e96f0c0251745bdac9e099e5ba541d760ab2dd4a973e38892aa7b36bdcaf5e20"
+    },
     "app.js": {
       "bytes": 11025,
       "sha256": "672d7e0d56d2787f7ebcc51797afdb8127207cba3f9e819ac278309331701f14"
@@ -30,7 +34,7 @@
     }
   },
   "network_requests": "same_origin_assets_only",
-  "release": "e-002-public-preview-v0.2-candidate",
+  "release": "e-002-public-preview-v0.3-candidate",
   "schema": 1,
   "scope": "static_public_files_only",
   "tracking": "none"
