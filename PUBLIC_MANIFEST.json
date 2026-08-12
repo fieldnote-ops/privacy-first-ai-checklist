@@ -1,8 +1,8 @@
 {
   "files": {
     "README.md": {
-      "bytes": 1499,
-      "sha256": "e96f0c0251745bdac9e099e5ba541d760ab2dd4a973e38892aa7b36bdcaf5e20"
+      "bytes": 1760,
+      "sha256": "b14f5c7f3ea072f08144a76a6f8e2cbb64aa9c892ba0dc10e74d3991341a4f65"
     },
     "app.js": {
       "bytes": 11025,
@@ -24,6 +24,10 @@
       "bytes": 2135,
       "sha256": "ac5be91130449588224d12f2be697c9b3fa4c01f26794e14a3b9c215b7c4410c"
     },
+    "evidence-accounting.html": {
+      "bytes": 8405,
+      "sha256": "a27963a95a585c5c50d042fc487be0c17ded5af274999110d9ee87aac25b48d0"
+    },
     "index.html": {
       "bytes": 29677,
       "sha256": "81df04365320dfe31870d82382186b3e7247a402bff2f59975e5b1e8255e36f8"
@@ -34,7 +38,7 @@
     }
   },
   "network_requests": "same_origin_assets_only",
-  "release": "e-002-public-preview-v0.3-candidate",
+  "release": "e-002-public-preview-v0.4-candidate",
   "schema": 1,
   "scope": "static_public_files_only",
   "tracking": "none"

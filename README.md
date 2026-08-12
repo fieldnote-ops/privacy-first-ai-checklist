@@ -20,6 +20,10 @@ No account, analytics, cookie, backend form, or free-text upload. Use fictional 
 
 This is a demand test, not a proven product. A public page, download, or GitHub visit does not prove usefulness or willingness to pay. It is not a contract, security review, n8n template, or substitute for platform-specific documentation.
 
+## Evidence methods / 实证方法
+
+- [3 个发布链接，不等于 3 份证据](https://fieldnote-ops.github.io/privacy-first-ai-checklist/evidence-accounting.html) — why cross-platform surfaces are counted separately from their underlying evidence asset.
+
 ## Downloads
 
 - [English checklist](https://fieldnote-ops.github.io/privacy-first-ai-checklist/downloads/privacy-first-ai-checklist.en.md)
