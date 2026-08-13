@@ -1,8 +1,8 @@
 {
   "files": {
     "README.md": {
-      "bytes": 1760,
-      "sha256": "b14f5c7f3ea072f08144a76a6f8e2cbb64aa9c892ba0dc10e74d3991341a4f65"
+      "bytes": 3833,
+      "sha256": "f10c6e04f5d01b54a71416e1b1cdc19fde8a2c994767a30133dc5b2f91c09e5b"
     },
     "app.js": {
       "bytes": 11025,
@@ -38,7 +38,7 @@
     }
   },
   "network_requests": "same_origin_assets_only",
-  "release": "e-002-public-preview-v0.4-candidate",
+  "release": "e-002-public-preview-v0.6-candidate",
   "schema": 1,
   "scope": "static_public_files_only",
   "tracking": "none"
