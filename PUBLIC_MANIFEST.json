@@ -1,8 +1,8 @@
 {
   "files": {
     "README.md": {
-      "bytes": 3833,
-      "sha256": "f10c6e04f5d01b54a71416e1b1cdc19fde8a2c994767a30133dc5b2f91c09e5b"
+      "bytes": 4554,
+      "sha256": "e88f23187cc536c2ffaca0d4fbe326bec8ec1d80ad2376f70fa57b901fa11aff"
     },
     "app.js": {
       "bytes": 11025,
@@ -29,16 +29,16 @@
       "sha256": "a27963a95a585c5c50d042fc487be0c17ded5af274999110d9ee87aac25b48d0"
     },
     "index.html": {
-      "bytes": 29677,
-      "sha256": "81df04365320dfe31870d82382186b3e7247a402bff2f59975e5b1e8255e36f8"
+      "bytes": 30202,
+      "sha256": "7d6a2946d2e428ce458d5058dc504aaecac4dbc6cb4135af16d93dc3d908790f"
     },
     "styles.css": {
-      "bytes": 17461,
-      "sha256": "6a33ed5454fa6235dd04c568c6da2e9cff0ea9b19f600b88fbd5fabe3cc4a693"
+      "bytes": 17515,
+      "sha256": "5927ce63b1e0d587f042d0e4b01d3fcb39c8c1c471b7ccf426a190b6c3be5870"
     }
   },
   "network_requests": "same_origin_assets_only",
-  "release": "e-002-public-preview-v0.6-candidate",
+  "release": "e-002-public-preview-v0.7-candidate",
   "schema": 1,
   "scope": "static_public_files_only",
   "tracking": "none"
