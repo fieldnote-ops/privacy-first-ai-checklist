@@ -30,10 +30,6 @@ If you completed a paid client-automation delivery in the last six months, you m
 
 This remains an unproven product. A public page, download, GitHub visit, checkout-link availability, or Afdian listing does not prove usefulness or willingness to pay. Only a non-associated completed payment can become transaction evidence, and only controlled net settlement can become recognized revenue. Public usernames are not copied into the local evidence ledger. This is not a contract, security review, n8n template, or substitute for platform-specific documentation.
 
-## Evidence methods / 实证方法
-
-- [3 个发布链接，不等于 3 份证据](https://fieldnote-ops.github.io/privacy-first-ai-checklist/evidence-accounting.html) — why cross-platform surfaces are counted separately from their underlying evidence asset.
-
 ## Downloads
 
 - [English checklist](https://fieldnote-ops.github.io/privacy-first-ai-checklist/downloads/privacy-first-ai-checklist.en.md)
